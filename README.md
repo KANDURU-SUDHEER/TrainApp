@@ -1,21 +1,23 @@
 Train Consist Management App
 
 Overview
-This application simulates train consist management. In this use case, the system ensures that duplicate bogie IDs are not stored using HashSet.
+This application simulates train consist management. In this use case, the system maintains the correct order of bogies using LinkedList.
 
-Use Case 3 Track Unique Bogie IDs
+Use Case 4 Maintain Ordered Bogie Consist
 
 Goal
-Ensure that only unique bogie IDs are stored in the system.
+Maintain the correct sequence of bogies and allow insertion and deletion at specific positions.
 
 Features
-Stores bogie IDs
-Prevents duplicate entries automatically
-Displays unique bogie IDs
+Creates a LinkedList for train consist
+Adds bogies in order
+Inserts a bogie at a specific position
+Removes bogies from beginning and end
+Displays final ordered train
 
 Technologies Used
 Java
-HashSet from Java Collections Framework
+LinkedList from Java Collections Framework
 
 How to Run
 
@@ -28,18 +30,27 @@ java TrainApp
 Sample Output
 
 ========================================
-UC3 Track Unique Bogie IDs
-==========================
+UC4 Maintain Ordered Bogie Consist
+==================================
 
-Unique Bogie IDs
-[BG101, BG102, BG103, BG104]
+Initial Train Consist
+[Engine, Sleeper, AC, Cargo, Guard]
+
+After inserting Pantry at position 2
+[Engine, Sleeper, Pantry, AC, Cargo, Guard]
+
+After removing first and last bogies
+[Sleeper, Pantry, AC, Cargo]
+
+Final Train Consist
+[Sleeper, Pantry, AC, Cargo]
 
 Concepts Covered
-Set Interface
-HashSet
+LinkedList
 add method
-Automatic duplicate removal
-Unordered storage
+add at index
+remove method
+Order preservation
 
 Status
-UC3 Completed Unique Bogie Tracking
+UC4 Completed Ordered Bogie Management

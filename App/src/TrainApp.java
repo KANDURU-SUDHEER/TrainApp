@@ -3,25 +3,26 @@
  * MAIN CLASS - TrainApp
  * ================================================================
  *
- * Use Case 3: Track Unique Bogie IDs
+ * Use Case 4: Maintain Ordered Bogie Consist
  *
  * Description:
- * This class ensures that duplicate bogie IDs are not added
- * into the train using HashSet.
+ * This class models the physical chaining of train bogies
+ * using LinkedList to maintain order.
  *
  * At this stage, the application:
- * - Stores bogie IDs
- * - Prevents duplicate entries automatically
- * - Displays only unique bogie IDs
+ * - Adds bogies in sequence
+ * - Inserts bogies at specific positions
+ * - Removes bogies from front and rear
+ * - Displays the updated train structure
  *
- * This demonstrates uniqueness using Set (HashSet).
+ * This demonstrates ordered operations using LinkedList.
  *
  * Author: KANDURU-SUDHEER
- * Version: 3.0
+ * Version: 4.0
  */
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TrainApp {
 
@@ -31,35 +32,51 @@ public class TrainApp {
         // STEP 1: Display Header
         // ============================================================
         System.out.println("========================================");
-        System.out.println("   UC3 - Track Unique Bogie IDs         ");
+        System.out.println("   UC4 - Maintain Ordered Bogie Consist ");
         System.out.println("========================================\n");
 
         // ============================================================
-        // STEP 2: Create HashSet for Bogie IDs
-        // HashSet stores only unique values
+        // STEP 2: Create LinkedList for Train Consist
         // ============================================================
-        Set<String> bogies = new HashSet<>();
+        List<String> trainConsist = new LinkedList<>();
 
         // ============================================================
-        // STEP 3: Add Bogie IDs (including duplicates)
+        // STEP 3: Add Bogies in Sequence
         // ============================================================
-        bogies.add("BG101");
-        bogies.add("BG102");
-        bogies.add("BG103");
-        bogies.add("BG104");
+        trainConsist.add("Engine");
+        trainConsist.add("Sleeper");
+        trainConsist.add("AC");
+        trainConsist.add("Cargo");
+        trainConsist.add("Guard");
 
-        // Duplicate entries (will be ignored automatically)
-        bogies.add("BG101");
-        bogies.add("BG102");
-
-        // ============================================================
-        // STEP 4: Display Unique Bogie IDs
-        // ============================================================
-        System.out.println("Unique Bogie IDs:");
-        System.out.println(bogies);
+        System.out.println("Initial Train Consist:");
+        System.out.println(trainConsist);
 
         // ============================================================
-        // END OF UC3
+        // STEP 4: Insert Pantry Car at position 2
+        // ============================================================
+        trainConsist.add(2, "Pantry");
+
+        System.out.println("\nAfter inserting Pantry at position 2:");
+        System.out.println(trainConsist);
+
+        // ============================================================
+        // STEP 5: Remove First and Last Bogies
+        // ============================================================
+        trainConsist.remove(0); // remove Engine
+        trainConsist.remove(trainConsist.size() - 1); // remove Guard
+
+        System.out.println("\nAfter removing first and last bogies:");
+        System.out.println(trainConsist);
+
+        // ============================================================
+        // STEP 6: Final Train Consist
+        // ============================================================
+        System.out.println("\nFinal Train Consist:");
+        System.out.println(trainConsist);
+
+        // ============================================================
+        // END OF UC4
         // ============================================================
     }
 }
