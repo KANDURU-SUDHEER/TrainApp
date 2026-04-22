@@ -1,11 +1,8 @@
-package test;
-
-
 import org.junit.jupiter.api.Test;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UseCase8TrainConsistMgmtTest {
+public class TrainApp_Test {
 
     static class Bogie {
         String name;
@@ -17,7 +14,7 @@ public class UseCase8TrainConsistMgmtTest {
         }
     }
 
-    private List<Bogie> getSampleBogies() {
+    private List<Bogie> getBogies() {
         return Arrays.asList(
                 new Bogie("Sleeper", 72),
                 new Bogie("AC Chair", 56),
@@ -28,7 +25,7 @@ public class UseCase8TrainConsistMgmtTest {
 
     @Test
     void testFilter_CapacityGreaterThanThreshold() {
-        List<Bogie> result = getSampleBogies().stream()
+        List<Bogie> result = getBogies().stream()
                 .filter(b -> b.capacity > 70)
                 .toList();
 
@@ -37,7 +34,7 @@ public class UseCase8TrainConsistMgmtTest {
 
     @Test
     void testFilter_CapacityEqualToThreshold() {
-        List<Bogie> result = getSampleBogies().stream()
+        List<Bogie> result = getBogies().stream()
                 .filter(b -> b.capacity > 72)
                 .toList();
 
@@ -46,7 +43,7 @@ public class UseCase8TrainConsistMgmtTest {
 
     @Test
     void testFilter_CapacityLessThanThreshold() {
-        List<Bogie> result = getSampleBogies().stream()
+        List<Bogie> result = getBogies().stream()
                 .filter(b -> b.capacity > 60)
                 .toList();
 
@@ -55,7 +52,7 @@ public class UseCase8TrainConsistMgmtTest {
 
     @Test
     void testFilter_MultipleBogiesMatching() {
-        List<Bogie> result = getSampleBogies().stream()
+        List<Bogie> result = getBogies().stream()
                 .filter(b -> b.capacity > 50)
                 .toList();
 
@@ -64,7 +61,7 @@ public class UseCase8TrainConsistMgmtTest {
 
     @Test
     void testFilter_NoBogiesMatching() {
-        List<Bogie> result = getSampleBogies().stream()
+        List<Bogie> result = getBogies().stream()
                 .filter(b -> b.capacity > 200)
                 .toList();
 
@@ -73,7 +70,7 @@ public class UseCase8TrainConsistMgmtTest {
 
     @Test
     void testFilter_AllBogiesMatching() {
-        List<Bogie> result = getSampleBogies().stream()
+        List<Bogie> result = getBogies().stream()
                 .filter(b -> b.capacity > 10)
                 .toList();
 
@@ -91,7 +88,7 @@ public class UseCase8TrainConsistMgmtTest {
 
     @Test
     void testFilter_OriginalListUnchanged() {
-        List<Bogie> original = new ArrayList<>(getSampleBogies());
+        List<Bogie> original = new ArrayList<>(getBogies());
 
         original.stream()
                 .filter(b -> b.capacity > 60)
@@ -100,4 +97,3 @@ public class UseCase8TrainConsistMgmtTest {
         assertEquals(4, original.size());
     }
 }
-

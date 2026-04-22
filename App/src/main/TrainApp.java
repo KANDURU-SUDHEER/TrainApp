@@ -1,4 +1,3 @@
-package main;
 /**
  * ================================================================
  * MAIN CLASS - TrainApp
@@ -7,8 +6,8 @@ package main;
  * Use Case 8: Filter Passenger Bogies Using Streams
  *
  * Description:
- * This class filters passenger bogies based on seating capacity
- * using Java Stream API.
+ * This class filters passenger bogies based on seating
+ * capacity using Java Stream API.
  *
  * Author: KANDURU-SUDHEER
  * Version: 8.0
@@ -17,11 +16,9 @@ package main;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class UseCase8TrainConsisntMgmt {
+public class TrainApp {
 
-    // ============================================================
-    // Bogie Class (same as UC7)
-    // ============================================================
+    // Bogie class
     static class Bogie {
         String name;
         int capacity;
@@ -40,11 +37,12 @@ public class UseCase8TrainConsisntMgmt {
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println("   UC8 - Filter Passenger Bogies        ");
+        System.out.println(" UC8 - Filter Passenger Bogies Using Streams ");
         System.out.println("========================================\n");
 
-        // Create list of bogies
+        // Create bogie list
         List<Bogie> bogies = new ArrayList<>();
+
         bogies.add(new Bogie("Sleeper", 72));
         bogies.add(new Bogie("AC Chair", 56));
         bogies.add(new Bogie("First Class", 24));
@@ -54,18 +52,15 @@ public class UseCase8TrainConsisntMgmt {
         System.out.println("All Bogies:");
         bogies.forEach(System.out::println);
 
-        // ============================================================
-        // Stream Filtering (capacity > 60)
-        // ============================================================
+        // Stream filtering
         List<Bogie> filtered = bogies.stream()
                 .filter(b -> b.capacity > 60)
                 .collect(Collectors.toList());
 
-        // Display filtered bogies
+        // Display filtered
         System.out.println("\nFiltered Bogies (Capacity > 60):");
         filtered.forEach(System.out::println);
 
         System.out.println("\nUC8 filtering completed...");
     }
 }
-
