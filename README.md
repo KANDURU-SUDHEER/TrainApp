@@ -1,39 +1,35 @@
 Train Consist Management App
 
 Overview
-This project is a console based Java application that simulates how a railway system manages a train consist. It demonstrates multiple Java concepts through different use cases such as collections, streams, validation, and performance measurement.
+This project is a console based Java application that simulates how a train consist is managed. It demonstrates validation and error handling using custom exceptions.
 
 Project Structure
-The project is organized into main and test source folders.
-
 src/main contains application code
 src/test contains test code
 
 Package Structure
-Main class package
 main
-
-Test class package
 test
 
-Use Case 13 Performance Comparison
+Use Case 14 Handle Invalid Bogie Capacity
 
 Goal
-Compare execution performance of loop based filtering and stream based filtering using time measurement.
+Prevent invalid passenger bogies from being created using custom exception handling.
 
 Features
-Creates a large dataset of bogies
-Applies filtering using loop
-Applies filtering using stream
-Measures execution time using System.nanoTime
-Displays execution time results
-Compares performance of both approaches
+Defines custom exception class
+Validates capacity during object creation
+Throws exception for invalid capacity
+Prevents incorrect data entry
+Displays valid bogies only
+
+Validation Rule
+Capacity must be greater than zero
 
 Technologies Used
 Java
-Stream API
-ArrayList
-JUnit for testing
+Exception Handling
+JUnit
 
 How to Run
 
@@ -43,28 +39,23 @@ javac -d . TrainApp.java
 Run the program
 java main.TrainApp
 
-How to Run Tests
-
-Run using IDE or JUnit runner
-
 Sample Output
 
 ========================================
-UC13 Performance Comparison
-===========================
+UC14 Handle Invalid Bogie Capacity
+==================================
 
-Loop Filtering Time (ns) 123456
-Stream Filtering Time (ns) 234567
+Error Capacity must be greater than zero
 
-Loop Result Size 20000
-Stream Result Size 20000
+Valid Bogies
+Sleeper -> 72
 
 Concepts Covered
-System.nanoTime
-Performance benchmarking
-Loop based processing
-Stream based processing
-Filtering logic
+Custom Exception
+throw keyword
+throws keyword
+Fail fast validation
+Defensive programming
 
 Status
-UC13 Completed Performance Comparison
+UC14 Completed Custom Exception Handling
