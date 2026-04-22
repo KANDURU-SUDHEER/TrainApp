@@ -1,33 +1,36 @@
 Train Consist Management App
 
 Overview
-This project is a console based Java application that simulates how a railway system manages a train consist. A consist is a collection of bogies attached to a train. The application demonstrates multiple Java concepts through different use cases.
+This project is a console based Java application that simulates how a railway system manages a train consist. It demonstrates multiple Java concepts through different use cases such as collections, streams, and validation.
 
 Project Structure
-The project follows standard Java structure with separate folders for main and test code.
+The project is organized into main and test source folders.
 
 src/main contains application code
-src/test contains test cases
+src/test contains test code
 
 Package Structure
 Main class package
-com.trainapp.main
+main
 
 Test class package
-com.trainapp.test
+test
 
-Use Case 10 Count Total Seats in Train
+Use Case 12 Safety Compliance Check for Goods Bogies
 
 Goal
-Calculate total seating capacity of all bogies using stream aggregation.
+Ensure that goods bogies follow safety rules using stream validation.
 
 Features
-Creates a list of bogies
-Stores bogie name and capacity
+Creates goods bogie list with type and cargo
 Uses stream to process data
-Applies map to extract capacity
-Uses reduce to calculate total seats
-Displays total seating capacity
+Applies safety validation using allMatch
+Checks cylindrical bogie cargo rule
+Displays whether train is safe or unsafe
+
+Safety Rule
+Cylindrical bogies must carry only Petroleum
+Other bogie types can carry any cargo
 
 Technologies Used
 Java
@@ -41,7 +44,7 @@ Compile the program
 javac -d . TrainApp.java
 
 Run the program
-java com.trainapp.main.TrainApp
+java main.TrainApp
 
 How to Run Tests
 
@@ -50,23 +53,17 @@ Run using IDE or JUnit runner
 Sample Output
 
 ========================================
-UC10 Count Total Seats in Train
-===============================
+UC12 Safety Compliance Check
+============================
 
-Bogies in Train
-Sleeper -> 72
-AC Chair -> 56
-First Class -> 24
-Sleeper -> 70
-
-Total Seating Capacity 222
+Train Safety Status Safe
 
 Concepts Covered
-Stream API
-map method
-reduce method
-Aggregation
-Functional programming
+Streams API
+allMatch method
+Lambda expressions
+Conditional logic
+Business rule validation
 
 Status
-UC10 Completed Total Seat Calculation
+UC12 Completed Safety Validation

@@ -6,40 +6,67 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TrainApp_Test {
 
-    static class Bogie {
-        String name;
-        int capacity;
+    static class GoodsBogie {
+        String type;
+        String cargo;
 
-        Bogie(String name, int capacity) {
-            this.name = name;
-            this.capacity = capacity;
+        GoodsBogie(String type, String cargo) {
+            this.type = type;
+            this.cargo = cargo;
         }
     }
 
-    private List<Bogie> getBogies() {
-        return Arrays.asList(
-                new Bogie("Sleeper", 72),
-                new Bogie("AC Chair", 56),
-                new Bogie("First Class", 24),
-                new Bogie("Sleeper", 70)
+    private boolean validate(List<GoodsBogie> list) {
+        return list.stream()
+                .allMatch(g ->
+                        !g.type.equalsIgnoreCase("Cylindrical")
+                                || g.cargo.equalsIgnoreCase("Petroleum")
+                );
+    }
+
+    @Test
+    void testSafety_AllBogiesValid() {
+        List<GoodsBogie> list = Arrays.asList(
+                new GoodsBogie("Cylindrical", "Petroleum"),
+                new GoodsBogie("Open", "Coal")
         );
+
+        assertTrue(validate(list));
     }
 
     @Test
-    void testReduce_TotalSeatCalculation() {
-        int total = getBogies().stream()
-                .map(b -> b.capacity)
-                .reduce(0, Integer::sum);
+    void testSafety_CylindricalWithInvalidCargo() {
+        List<GoodsBogie> list = Arrays.asList(
+                new GoodsBogie("Cylindrical", "Coal")
+        );
 
-        assertEquals(222, total);
+        assertFalse(validate(list));
     }
 
     @Test
-    void testReduce_EmptyBogieList() {
-        int total = new ArrayList<Bogie>().stream()
-                .map(b -> b.capacity)
-                .reduce(0, Integer::sum);
+    void testSafety_NonCylindricalBogiesAllowed() {
+        List<GoodsBogie> list = Arrays.asList(
+                new GoodsBogie("Open", "Coal"),
+                new GoodsBogie("Box", "Grain")
+        );
 
-        assertEquals(0, total);
+        assertTrue(validate(list));
+    }
+
+    @Test
+    void testSafety_MixedBogiesWithViolation() {
+        List<GoodsBogie> list = Arrays.asList(
+                new GoodsBogie("Cylindrical", "Petroleum"),
+                new GoodsBogie("Cylindrical", "Coal")
+        );
+
+        assertFalse(validate(list));
+    }
+
+    @Test
+    void testSafety_EmptyBogieList() {
+        List<GoodsBogie> list = new ArrayList<>();
+
+        assertTrue(validate(list));
     }
 }

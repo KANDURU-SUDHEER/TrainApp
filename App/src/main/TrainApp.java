@@ -5,53 +5,86 @@ package main;
  * MAIN CLASS - TrainApp
  * ================================================================
  *
- * Use Case 10: Count Total Seats in Train (reduce)
+ * Use Case 12: Safety Compliance Check for Goods Bogies
+ *
+ * Description:
+ * This class enforces domain safety rules on goods bogies.
+ *
+ * At this stage, the application:
+ * - Creates goods bogie list
+ * - Converts list into stream
+ * - Applies safety validation rule
+ * - Checks compliance using allMatch()
+ * - Displays safety status
+ *
+ * This maps real-world cargo safety rules using Streams.
  *
  * Author: KANDURU-SUDHEER
- * Version: 10.0
+ * Version: 12.0
  */
 
 import java.util.*;
 
 public class TrainApp {
 
-    static class Bogie {
-        String name;
-        int capacity;
+    // ============================================================
+    // Goods Bogie Model
+    // ============================================================
+    static class GoodsBogie {
+        String type;
+        String cargo;
 
-        Bogie(String name, int capacity) {
-            this.name = name;
-            this.capacity = capacity;
+        GoodsBogie(String type, String cargo) {
+            this.type = type;
+            this.cargo = cargo;
         }
 
         @Override
         public String toString() {
-            return name + " -> " + capacity;
+            return type + " -> " + cargo;
         }
     }
 
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println("   UC10 - Count Total Seats in Train    ");
+        System.out.println(" UC12 - Safety Compliance Check for Goods Bogies ");
         System.out.println("========================================\n");
 
-        List<Bogie> bogies = new ArrayList<>();
+        // ============================================================
+        // STEP 1: Create Goods Bogie List
+        // ============================================================
+        List<GoodsBogie> goodsBogies = new ArrayList<>();
 
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 56));
-        bogies.add(new Bogie("First Class", 24));
-        bogies.add(new Bogie("Sleeper", 70));
+        goodsBogies.add(new GoodsBogie("Cylindrical", "Petroleum"));
+        goodsBogies.add(new GoodsBogie("Open", "Coal"));
+        goodsBogies.add(new GoodsBogie("Box", "Grain"));
 
-        System.out.println("Bogies in Train:");
-        for (Bogie b : bogies) {
-            System.out.println(b);
+        // ============================================================
+        // STEP 2: Display Bogies
+        // ============================================================
+        System.out.println("Goods Bogies:");
+        for (GoodsBogie g : goodsBogies) {
+            System.out.println(g);
         }
 
-        int totalSeats = bogies.stream()
-                .map(b -> b.capacity)
-                .reduce(0, Integer::sum);
+        // ============================================================
+        // STEP 3: Apply Safety Validation using Stream
+        // Rule: Cylindrical -> only Petroleum allowed
+        // ============================================================
+        boolean isSafe = goodsBogies.stream()
+                .allMatch(g ->
+                        !g.type.equalsIgnoreCase("Cylindrical")
+                                || g.cargo.equalsIgnoreCase("Petroleum")
+                );
 
-        System.out.println("\nTotal Seating Capacity: " + totalSeats);
+        // ============================================================
+        // STEP 4: Display Safety Status
+        // ============================================================
+        System.out.println("\nTrain Safety Status: " + (isSafe ? "SAFE" : "UNSAFE"));
+
+        // ============================================================
+        // END OF UC12
+        // ============================================================
     }
 }
