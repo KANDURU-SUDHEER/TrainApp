@@ -1,7 +1,7 @@
 Train Consist Management App
 
 Overview
-This project is a console based Java application that simulates how a railway system manages a train consist. It demonstrates multiple Java concepts through different use cases such as collections, streams, and validation.
+This project is a console based Java application that simulates how a railway system manages a train consist. It demonstrates multiple Java concepts through different use cases such as collections, streams, validation, and performance measurement.
 
 Project Structure
 The project is organized into main and test source folders.
@@ -16,21 +16,18 @@ main
 Test class package
 test
 
-Use Case 12 Safety Compliance Check for Goods Bogies
+Use Case 13 Performance Comparison
 
 Goal
-Ensure that goods bogies follow safety rules using stream validation.
+Compare execution performance of loop based filtering and stream based filtering using time measurement.
 
 Features
-Creates goods bogie list with type and cargo
-Uses stream to process data
-Applies safety validation using allMatch
-Checks cylindrical bogie cargo rule
-Displays whether train is safe or unsafe
-
-Safety Rule
-Cylindrical bogies must carry only Petroleum
-Other bogie types can carry any cargo
+Creates a large dataset of bogies
+Applies filtering using loop
+Applies filtering using stream
+Measures execution time using System.nanoTime
+Displays execution time results
+Compares performance of both approaches
 
 Technologies Used
 Java
@@ -53,17 +50,21 @@ Run using IDE or JUnit runner
 Sample Output
 
 ========================================
-UC12 Safety Compliance Check
-============================
+UC13 Performance Comparison
+===========================
 
-Train Safety Status Safe
+Loop Filtering Time (ns) 123456
+Stream Filtering Time (ns) 234567
+
+Loop Result Size 20000
+Stream Result Size 20000
 
 Concepts Covered
-Streams API
-allMatch method
-Lambda expressions
-Conditional logic
-Business rule validation
+System.nanoTime
+Performance benchmarking
+Loop based processing
+Stream based processing
+Filtering logic
 
 Status
-UC12 Completed Safety Validation
+UC13 Completed Performance Comparison
