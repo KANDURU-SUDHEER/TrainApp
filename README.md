@@ -1,22 +1,24 @@
 Train Consist Management App
 
 Overview
-This application simulates train consist management. In this use case, the system maps each bogie to its seating or load capacity using HashMap.
+This application simulates train consist management. In this use case, bogies are sorted based on their seating capacity using Comparator.
 
-Use Case 6 Map Bogie to Capacity
+Use Case 7 Sort Bogies by Capacity
 
 Goal
-Associate each bogie with its capacity using key value mapping.
+Sort passenger bogies based on seating capacity.
 
 Features
-Stores bogie and capacity as key value pairs
-Adds data using put method
-Displays bogie and capacity details
-Supports fast lookup using keys
+Creates bogie objects with name and capacity
+Stores bogies in a list
+Displays unsorted bogies
+Sorts bogies using Comparator
+Displays sorted bogies
 
 Technologies Used
 Java
-HashMap from Java Collections Framework
+ArrayList
+Comparator
 
 How to Run
 
@@ -29,20 +31,25 @@ java TrainApp
 Sample Output
 
 ========================================
-UC6 Map Bogie to Capacity
-=========================
+UC7 Sort Bogies by Capacity
+===========================
 
-Bogie Capacity Details
+Before Sorting
 Sleeper -> 72
 AC Chair -> 54
 First Class -> 24
 
+After Sorting by capacity
+First Class -> 24
+AC Chair -> 54
+Sleeper -> 72
+
 Concepts Covered
-Map Interface
-HashMap
-put method
-entrySet iteration
-Key value mapping
+Comparator Interface
+Custom Objects
+List Collection
+Sorting using Comparator
+Lambda expressions
 
 Status
-UC6 Completed Bogie Capacity Mapping
+UC7 Completed Bogie Sorting
