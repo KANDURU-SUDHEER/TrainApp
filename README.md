@@ -1,23 +1,21 @@
 Train Consist Management App
 
 Overview
-This application simulates train consist management. In this use case, the system maintains the correct order of bogies using LinkedList.
+This application simulates train consist management. In this use case, the system preserves insertion order of bogies while preventing duplicates using LinkedHashSet.
 
-Use Case 4 Maintain Ordered Bogie Consist
+Use Case 5 Preserve Insertion Order of Bogies
 
 Goal
-Maintain the correct sequence of bogies and allow insertion and deletion at specific positions.
+Maintain insertion order and ensure no duplicate bogies are added.
 
 Features
-Creates a LinkedList for train consist
-Adds bogies in order
-Inserts a bogie at a specific position
-Removes bogies from beginning and end
-Displays final ordered train
+Stores bogies in insertion order
+Prevents duplicate entries automatically
+Displays final train formation
 
 Technologies Used
 Java
-LinkedList from Java Collections Framework
+LinkedHashSet from Java Collections Framework
 
 How to Run
 
@@ -30,27 +28,18 @@ java TrainApp
 Sample Output
 
 ========================================
-UC4 Maintain Ordered Bogie Consist
-==================================
+UC5 Preserve Insertion Order
+============================
 
-Initial Train Consist
-[Engine, Sleeper, AC, Cargo, Guard]
-
-After inserting Pantry at position 2
-[Engine, Sleeper, Pantry, AC, Cargo, Guard]
-
-After removing first and last bogies
-[Sleeper, Pantry, AC, Cargo]
-
-Final Train Consist
-[Sleeper, Pantry, AC, Cargo]
+Final Train Formation
+[Engine, Sleeper, Cargo, Guard]
 
 Concepts Covered
-LinkedList
+Set Interface
+LinkedHashSet
 add method
-add at index
-remove method
-Order preservation
+Automatic duplicate removal
+Insertion order preservation
 
 Status
-UC4 Completed Ordered Bogie Management
+UC5 Completed Ordered Unique Bogie Management
