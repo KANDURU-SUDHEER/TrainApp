@@ -1,57 +1,45 @@
 Train Consist Management App
 
 Overview
-The Train Consist Management App is a console based Java application that simulates how a train consist is managed. A consist is a collection of bogies attached to a train. This use case focuses on managing passenger bogies dynamically.
+This application simulates train consist management. In this use case, the system ensures that duplicate bogie IDs are not stored using HashSet.
 
-Use Case 2 Add Passenger Bogies to Train
+Use Case 3 Track Unique Bogie IDs
 
 Goal
-Allow dynamic addition, removal, and checking of passenger bogies using ArrayList.
+Ensure that only unique bogie IDs are stored in the system.
 
 Features
-Creates a list to store passenger bogies
-Adds bogies such as Sleeper AC Chair and First Class
-Displays the list after adding bogies
-Removes a bogie from the list
-Checks whether a bogie exists in the list
-Displays final train consist
+Stores bogie IDs
+Prevents duplicate entries automatically
+Displays unique bogie IDs
 
 Technologies Used
 Java
-ArrayList from Java Collections Framework
+HashSet from Java Collections Framework
 
 How to Run
 
 Compile the program
-javac UseCase2TrainConsistMgmt.java
+javac TrainApp.java
 
 Run the program
-java UseCase2TrainConsistMgmt
+java TrainApp
 
 Sample Output
 
 ========================================
-UC2 Add Passenger Bogies to Train
-=================================
+UC3 Track Unique Bogie IDs
+==========================
 
-Bogies after addition
-[Sleeper, AC Chair, First Class]
-
-Bogies after removal of AC Chair
-[Sleeper, First Class]
-
-Is Sleeper bogie present true
-
-Final Train Consist
-[Sleeper, First Class]
+Unique Bogie IDs
+[BG101, BG102, BG103, BG104]
 
 Concepts Covered
-ArrayList
+Set Interface
+HashSet
 add method
-remove method
-contains method
-CRUD operations
-Insertion order preservation
+Automatic duplicate removal
+Unordered storage
 
 Status
-UC2 Completed Passenger Bogie Management
+UC3 Completed Unique Bogie Tracking
