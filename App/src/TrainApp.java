@@ -1,80 +1,65 @@
 /**
  * ================================================================
- * MAIN CLASS - UseCase2TrainConsistMgmt
+ * MAIN CLASS - TrainApp
  * ================================================================
  *
- * Use Case 2: Add Passenger Bogies to Train
+ * Use Case 3: Track Unique Bogie IDs
  *
  * Description:
- * This class demonstrates how passenger bogies can be
- * managed dynamically using ArrayList operations.
+ * This class ensures that duplicate bogie IDs are not added
+ * into the train using HashSet.
  *
  * At this stage, the application:
- * - Adds new passenger bogies to the train
- * - Displays the list of bogies
- * - Removes an existing bogie
- * - Checks whether a bogie exists
- * - Displays the final consist
+ * - Stores bogie IDs
+ * - Prevents duplicate entries automatically
+ * - Displays only unique bogie IDs
  *
- * This use case introduces CRUD operations using ArrayList.
+ * This demonstrates uniqueness using Set (HashSet).
  *
  * Author: KANDURU-SUDHEER
- * Version: 2.0
+ * Version: 3.0
  */
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
         // ============================================================
-        // STEP 1: Display Use Case Header
+        // STEP 1: Display Header
         // ============================================================
         System.out.println("========================================");
-        System.out.println("   UC2 - Add Passenger Bogies to Train  ");
+        System.out.println("   UC3 - Track Unique Bogie IDs         ");
         System.out.println("========================================\n");
 
         // ============================================================
-        // STEP 2: Create ArrayList for Passenger Bogies
+        // STEP 2: Create HashSet for Bogie IDs
+        // HashSet stores only unique values
         // ============================================================
-        List<String> passengerBogies = new ArrayList<>();
+        Set<String> bogies = new HashSet<>();
 
         // ============================================================
-        // STEP 3: Add Passenger Bogies (CREATE operation)
+        // STEP 3: Add Bogie IDs (including duplicates)
         // ============================================================
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        bogies.add("BG101");
+        bogies.add("BG102");
+        bogies.add("BG103");
+        bogies.add("BG104");
 
-        System.out.println("Bogies after addition:");
-        System.out.println(passengerBogies);
-
-        // ============================================================
-        // STEP 4: Remove a Bogie (DELETE operation)
-        // Removing "AC Chair"
-        // ============================================================
-        passengerBogies.remove("AC Chair");
-
-        System.out.println("\nBogies after removal of AC Chair:");
-        System.out.println(passengerBogies);
+        // Duplicate entries (will be ignored automatically)
+        bogies.add("BG101");
+        bogies.add("BG102");
 
         // ============================================================
-        // STEP 5: Check if a Bogie Exists (READ operation)
+        // STEP 4: Display Unique Bogie IDs
         // ============================================================
-        boolean isSleeperPresent = passengerBogies.contains("Sleeper");
-
-        System.out.println("\nIs Sleeper bogie present? " + isSleeperPresent);
-
-        // ============================================================
-        // STEP 6: Display Final Train Consist
-        // ============================================================
-        System.out.println("\nFinal Train Consist:");
-        System.out.println(passengerBogies);
+        System.out.println("Unique Bogie IDs:");
+        System.out.println(bogies);
 
         // ============================================================
-        // END OF UC2
+        // END OF UC3
         // ============================================================
     }
 }
