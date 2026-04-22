@@ -1,19 +1,20 @@
 Train Consist Management App
 
 Overview
-The Train Consist Management App is a simple console based Java application that simulates how a train consist is managed. A consist is a collection of bogies attached to a train.
+The Train Consist Management App is a console based Java application that simulates how a train consist is managed. A consist is a collection of bogies attached to a train. This use case focuses on managing passenger bogies dynamically.
 
-Use Case 1 Initialize Train
+Use Case 2 Add Passenger Bogies to Train
 
 Goal
-Initialize the application and display the initial state of the train consist.
+Allow dynamic addition, removal, and checking of passenger bogies using ArrayList.
 
 Features
-Displays welcome message
-Creates an empty train consist
-Uses dynamic list using ArrayList
-Shows initial bogie count
-Prints current train state
+Creates a list to store passenger bogies
+Adds bogies such as Sleeper AC Chair and First Class
+Displays the list after adding bogies
+Removes a bogie from the list
+Checks whether a bogie exists in the list
+Displays final train consist
 
 Technologies Used
 Java
@@ -22,29 +23,35 @@ ArrayList from Java Collections Framework
 How to Run
 
 Compile the program
-javac UseCase1TrainConsistMgmt.java
+javac UseCase2TrainConsistMgmt.java
 
 Run the program
-java UseCase1TrainConsistMgmt
+java UseCase2TrainConsistMgmt
 
 Sample Output
 
 ========================================
-Train Consist Management App
-============================
+UC2 Add Passenger Bogies to Train
+=================================
 
-Train initialized successfully
+Bogies after addition
+[Sleeper, AC Chair, First Class]
 
-Initial Bogie Count 0
-Current Train Consist []
+Bogies after removal of AC Chair
+[Sleeper, First Class]
+
+Is Sleeper bogie present true
+
+Final Train Consist
+[Sleeper, First Class]
 
 Concepts Covered
-Class and Main Method
-Static Keyword
-List Interface
 ArrayList
-Console Output
+add method
+remove method
+contains method
+CRUD operations
+Insertion order preservation
 
 Status
-UC1 Completed Train Initialization
-# TrainApp
+UC2 Completed Passenger Bogie Management
