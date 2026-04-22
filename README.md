@@ -1,55 +1,72 @@
 Train Consist Management App
 
 Overview
-This application simulates train consist management. In this use case, bogies are sorted based on their seating capacity using Comparator.
+This project is a console based Java application that simulates how a railway system manages a train consist. A consist is a collection of bogies attached to a train. The application demonstrates multiple Java concepts through different use cases.
 
-Use Case 7 Sort Bogies by Capacity
+Project Structure
+The project follows standard Java structure with separate folders for main and test code.
+
+src/main contains application code
+src/test contains test cases
+
+Package Structure
+Main class package
+com.trainapp.main
+
+Test class package
+com.trainapp.test
+
+Use Case 10 Count Total Seats in Train
 
 Goal
-Sort passenger bogies based on seating capacity.
+Calculate total seating capacity of all bogies using stream aggregation.
 
 Features
-Creates bogie objects with name and capacity
-Stores bogies in a list
-Displays unsorted bogies
-Sorts bogies using Comparator
-Displays sorted bogies
+Creates a list of bogies
+Stores bogie name and capacity
+Uses stream to process data
+Applies map to extract capacity
+Uses reduce to calculate total seats
+Displays total seating capacity
 
 Technologies Used
 Java
+Stream API
 ArrayList
-Comparator
+JUnit for testing
 
 How to Run
 
 Compile the program
-javac TrainApp.java
+javac -d . TrainApp.java
 
 Run the program
-java TrainApp
+java com.trainapp.main.TrainApp
+
+How to Run Tests
+
+Run using IDE or JUnit runner
 
 Sample Output
 
 ========================================
-UC7 Sort Bogies by Capacity
-===========================
+UC10 Count Total Seats in Train
+===============================
 
-Before Sorting
+Bogies in Train
 Sleeper -> 72
-AC Chair -> 54
+AC Chair -> 56
 First Class -> 24
+Sleeper -> 70
 
-After Sorting by capacity
-First Class -> 24
-AC Chair -> 54
-Sleeper -> 72
+Total Seating Capacity 222
 
 Concepts Covered
-Comparator Interface
-Custom Objects
-List Collection
-Sorting using Comparator
-Lambda expressions
+Stream API
+map method
+reduce method
+Aggregation
+Functional programming
 
 Status
-UC7 Completed Bogie Sorting
+UC10 Completed Total Seat Calculation
