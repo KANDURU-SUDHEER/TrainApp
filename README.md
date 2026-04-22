@@ -1,7 +1,7 @@
 Train Consist Management App
 
 Overview
-This project is a console based Java application that simulates how a train consist is managed. It demonstrates validation and error handling using custom exceptions.
+This project simulates railway train consist management using Java. It demonstrates safe runtime handling of cargo assignments using structured exception handling.
 
 Project Structure
 src/main contains application code
@@ -11,20 +11,21 @@ Package Structure
 main
 test
 
-Use Case 14 Handle Invalid Bogie Capacity
+Use Case 15 Safe Cargo Assignment
 
 Goal
-Prevent invalid passenger bogies from being created using custom exception handling.
+Handle unsafe cargo assignments using try catch finally without crashing the system.
 
 Features
-Defines custom exception class
-Validates capacity during object creation
-Throws exception for invalid capacity
-Prevents incorrect data entry
-Displays valid bogies only
+Defines custom runtime exception
+Validates cargo and bogie compatibility
+Throws exception for unsafe assignments
+Handles exception using catch block
+Executes finally block for completion
+Continues program execution safely
 
-Validation Rule
-Capacity must be greater than zero
+Safety Rule
+Rectangular bogie cannot carry Petroleum cargo
 
 Technologies Used
 Java
@@ -41,21 +42,22 @@ java main.TrainApp
 
 Sample Output
 
-========================================
-UC14 Handle Invalid Bogie Capacity
-==================================
+UC15 Safe Cargo Assignment
 
-Error Capacity must be greater than zero
+Cargo assigned Petroleum
+Error Unsafe cargo Rectangular bogie cannot carry Petroleum
+Assignment attempt completed
 
-Valid Bogies
-Sleeper -> 72
+Final Bogie States
+Cylindrical -> Petroleum
+Rectangular -> Coal
 
 Concepts Covered
+try catch finally
+Runtime Exception
 Custom Exception
-throw keyword
-throws keyword
-Fail fast validation
-Defensive programming
+Graceful error handling
+Program continuation
 
 Status
-UC14 Completed Custom Exception Handling
+UC15 Completed Safe Cargo Handling
