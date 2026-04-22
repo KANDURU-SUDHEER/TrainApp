@@ -3,28 +3,46 @@
  * MAIN CLASS - TrainApp
  * ================================================================
  *
- * Use Case 6: Map Bogie to Capacity (HashMap)
+ * Use Case 7: Sort Bogies by Capacity (Comparator)
  *
  * Description:
- * This class associates each bogie with its seating or
- * load capacity using a key value mapping structure.
+ * This class sorts passenger bogies based on seating capacity
+ * using a custom Comparator.
  *
  * At this stage, the application:
- * - Creates a mapping between bogie and capacity
- * - Inserts capacity values using put()
- * - Iterates through map entries
- * - Displays bogie and capacity details
+ * - Creates bogie objects
+ * - Stores them in a list
+ * - Displays unsorted data
+ * - Sorts using Comparator logic
+ * - Displays sorted result
  *
- * This demonstrates key value mapping using HashMap.
+ * This demonstrates custom sorting using Comparator.
  *
  * Author: KANDURU-SUDHEER
- * Version: 6.0
+ * Version: 7.0
  */
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TrainApp {
+
+    // ============================================================
+    // Inner Bogie class
+    // ============================================================
+    static class Bogie {
+        String name;
+        int capacity;
+
+        Bogie(String name, int capacity) {
+            this.name = name;
+            this.capacity = capacity;
+        }
+
+        @Override
+        public String toString() {
+            return name + " -> " + capacity;
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -32,33 +50,41 @@ public class TrainApp {
         // STEP 1: Display Header
         // ============================================================
         System.out.println("========================================");
-        System.out.println("   UC6 - Map Bogie to Capacity          ");
+        System.out.println("   UC7 - Sort Bogies by Capacity        ");
         System.out.println("========================================\n");
 
         // ============================================================
-        // STEP 2: Create HashMap
-        // Stores bogie as key and capacity as value
+        // STEP 2: Create List of Bogies
         // ============================================================
-        Map<String, Integer> capacityMap = new HashMap<>();
+        List<Bogie> bogies = new ArrayList<>();
+
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 54));
+        bogies.add(new Bogie("First Class", 24));
 
         // ============================================================
-        // STEP 3: Insert Bogie Capacities
+        // STEP 3: Display Unsorted Data
         // ============================================================
-        capacityMap.put("Sleeper", 72);
-        capacityMap.put("AC Chair", 54);
-        capacityMap.put("First Class", 24);
-
-        // ============================================================
-        // STEP 4: Display Bogie Capacity Details
-        // ============================================================
-        System.out.println("Bogie Capacity Details:");
-
-        for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
-            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        System.out.println("Before Sorting:");
+        for (Bogie b : bogies) {
+            System.out.println(b);
         }
 
         // ============================================================
-        // END OF UC6
+        // STEP 4: Sort using Comparator (by capacity)
+        // ============================================================
+        bogies.sort(Comparator.comparingInt(b -> b.capacity));
+
+        // ============================================================
+        // STEP 5: Display Sorted Data
+        // ============================================================
+        System.out.println("\nAfter Sorting (by capacity):");
+        for (Bogie b : bogies) {
+            System.out.println(b);
+        }
+
+        // ============================================================
+        // END OF UC7
         // ============================================================
     }
 }
