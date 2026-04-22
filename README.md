@@ -1,21 +1,22 @@
 Train Consist Management App
 
 Overview
-This application simulates train consist management. In this use case, the system preserves insertion order of bogies while preventing duplicates using LinkedHashSet.
+This application simulates train consist management. In this use case, the system maps each bogie to its seating or load capacity using HashMap.
 
-Use Case 5 Preserve Insertion Order of Bogies
+Use Case 6 Map Bogie to Capacity
 
 Goal
-Maintain insertion order and ensure no duplicate bogies are added.
+Associate each bogie with its capacity using key value mapping.
 
 Features
-Stores bogies in insertion order
-Prevents duplicate entries automatically
-Displays final train formation
+Stores bogie and capacity as key value pairs
+Adds data using put method
+Displays bogie and capacity details
+Supports fast lookup using keys
 
 Technologies Used
 Java
-LinkedHashSet from Java Collections Framework
+HashMap from Java Collections Framework
 
 How to Run
 
@@ -28,18 +29,20 @@ java TrainApp
 Sample Output
 
 ========================================
-UC5 Preserve Insertion Order
-============================
+UC6 Map Bogie to Capacity
+=========================
 
-Final Train Formation
-[Engine, Sleeper, Cargo, Guard]
+Bogie Capacity Details
+Sleeper -> 72
+AC Chair -> 54
+First Class -> 24
 
 Concepts Covered
-Set Interface
-LinkedHashSet
-add method
-Automatic duplicate removal
-Insertion order preservation
+Map Interface
+HashMap
+put method
+entrySet iteration
+Key value mapping
 
 Status
-UC5 Completed Ordered Unique Bogie Management
+UC6 Completed Bogie Capacity Mapping
