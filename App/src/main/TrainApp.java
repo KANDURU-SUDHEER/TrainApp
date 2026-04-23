@@ -5,82 +5,71 @@ package main;
  * MAIN CLASS - TrainApp
  * ================================================================
  *
- * Use Case 19: Binary Search for Bogie ID
+ * Use Case 20: Prevent Search on Empty Train
  *
  * Description:
- * This class demonstrates efficient searching of a bogie ID
- * using Binary Search on sorted data.
+ * This class prevents search operations when no bogies
+ * are present using defensive programming.
  *
  * At this stage, the application:
- * - Creates a sorted array of bogie IDs
- * - Initializes low and high indexes
- * - Finds middle index
- * - Compares key using compareTo()
- * - Halves search range
- * - Displays result
+ * - Creates bogie collection
+ * - Validates collection state
+ * - Throws IllegalStateException if empty
+ * - Stops execution immediately
+ * - Displays meaningful error
  *
- * This maps optimized searching using divide-and-conquer.
+ * This maps fail-fast validation using runtime exceptions.
  *
  * Author: KANDURU-SUDHEER
- * Version: 19.0
+ * Version: 20.0
  */
+
+import java.util.*;
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println(" UC19 - Binary Search for Bogie ID ");
+        System.out.println(" UC20 - Prevent Search on Empty Train ");
         System.out.println("========================================\n");
 
         // ============================================================
-        // STEP 1: Create SORTED Array of Bogie IDs
+        // STEP 1: Create Bogie Collection (Empty List)
         // ============================================================
-        String[] bogieIds = {"BG101", "BG205", "BG309", "BG412", "BG550"};
+        List<String> bogies = new ArrayList<>();
 
         // ============================================================
-        // STEP 2: Define Search Key
+        // STEP 2: Validate State Before Search
         // ============================================================
-        String searchId = "BG309";
+        if (bogies.isEmpty()) {
+            throw new IllegalStateException("No bogies available for search operation");
+        }
 
         // ============================================================
-        // STEP 3: Initialize low and high indexes
+        // STEP 3: Perform Search (will not execute if empty)
         // ============================================================
-        int low = 0;
-        int high = bogieIds.length - 1;
+        String searchId = "BG101";
 
         boolean found = false;
-
-        // ============================================================
-        // STEP 4: Binary Search Logic
-        // ============================================================
-        while (low <= high) {
-
-            int mid = (low + high) / 2;
-
-            int comparison = searchId.compareTo(bogieIds[mid]);
-
-            if (comparison == 0) {
+        for (String id : bogies) {
+            if (id.equals(searchId)) {
                 found = true;
                 break;
-            } else if (comparison < 0) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
             }
         }
 
         // ============================================================
-        // STEP 5: Display Result
+        // STEP 4: Display Result
         // ============================================================
         if (found) {
-            System.out.println("Bogie ID " + searchId + " found");
+            System.out.println("Bogie found");
         } else {
-            System.out.println("Bogie ID " + searchId + " not found");
+            System.out.println("Bogie not found");
         }
 
         // ============================================================
-        // END OF UC19
+        // END OF UC20
         // ============================================================
     }
 }

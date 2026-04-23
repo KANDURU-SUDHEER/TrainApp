@@ -1,7 +1,7 @@
 Train Consist Management App
 
 Overview
-This project simulates train consist management and introduces optimized searching algorithms. This use case demonstrates binary search for efficient bogie ID lookup.
+This project simulates train consist management and introduces defensive programming techniques. This use case ensures that invalid operations such as searching an empty train are prevented.
 
 Project Structure
 src/main contains application code
@@ -11,21 +11,22 @@ Package Structure
 main
 test
 
-Use Case 19 Binary Search for Bogie ID
+Use Case 20 Prevent Search on Empty Train
 
 Goal
-Find a bogie ID efficiently using binary search on sorted data.
+Prevent search operations on an empty train by throwing an exception early.
 
 Features
-Uses sorted array of bogie IDs
-Applies binary search algorithm
-Divides search range into halves
-Uses compareTo for comparison
-Displays search result
+Validates bogie collection before search
+Throws IllegalStateException if empty
+Stops execution immediately
+Displays meaningful error message
+Prevents invalid operations
 
 Technologies Used
 Java
-Arrays
+Exception Handling
+ArrayList
 JUnit
 
 How to Run
@@ -38,16 +39,17 @@ java main.TrainApp
 
 Sample Output
 
-UC19 Binary Search for Bogie ID
+UC20 Prevent Search on Empty Train
 
-Bogie ID BG309 found
+Exception in thread main
+No bogies available for search operation
 
 Concepts Covered
-Binary Search
-Divide and conquer
-compareTo method
-Index based traversal
-Time complexity O log n
+Defensive Programming
+IllegalStateException
+Fail fast principle
+State validation
+Runtime exception
 
 Status
-UC19 Completed Binary Search
+UC20 Completed Defensive Programming
