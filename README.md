@@ -1,7 +1,7 @@
 Train Consist Management App
 
 Overview
-This project simulates train consist management and introduces searching algorithms. This use case demonstrates linear search for locating bogie IDs.
+This project simulates train consist management and introduces optimized searching algorithms. This use case demonstrates binary search for efficient bogie ID lookup.
 
 Project Structure
 src/main contains application code
@@ -11,16 +11,16 @@ Package Structure
 main
 test
 
-Use Case 18 Linear Search for Bogie ID
+Use Case 19 Binary Search for Bogie ID
 
 Goal
-Search for a specific bogie ID from an unsorted list.
+Find a bogie ID efficiently using binary search on sorted data.
 
 Features
-Creates array of bogie IDs
-Accepts search key
-Traverses array sequentially
-Stops when match is found
+Uses sorted array of bogie IDs
+Applies binary search algorithm
+Divides search range into halves
+Uses compareTo for comparison
 Displays search result
 
 Technologies Used
@@ -38,19 +38,16 @@ java main.TrainApp
 
 Sample Output
 
-UC18 Linear Search for Bogie ID
-
-Available Bogie IDs
-BG101 BG205 BG309 BG412 BG550
+UC19 Binary Search for Bogie ID
 
 Bogie ID BG309 found
 
 Concepts Covered
-Linear Search
-Sequential traversal
-String comparison using equals
-Early termination
-Time complexity O n
+Binary Search
+Divide and conquer
+compareTo method
+Index based traversal
+Time complexity O log n
 
 Status
-UC18 Completed Linear Search
+UC19 Completed Binary Search
