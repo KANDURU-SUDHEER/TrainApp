@@ -1,7 +1,7 @@
 Train Consist Management App
 
 Overview
-This project simulates train consist management and demonstrates efficient sorting using Java built in utilities. This use case focuses on sorting bogie names using Arrays sort method.
+This project simulates train consist management and introduces searching algorithms. This use case demonstrates linear search for locating bogie IDs.
 
 Project Structure
 src/main contains application code
@@ -11,20 +11,21 @@ Package Structure
 main
 test
 
-Use Case 17 Sort Bogie Names Using Arrays sort
+Use Case 18 Linear Search for Bogie ID
 
 Goal
-Sort bogie type names alphabetically using Java built in sorting method.
+Search for a specific bogie ID from an unsorted list.
 
 Features
-Creates array of bogie names
-Uses Arrays sort for sorting
-Displays sorted output
-Supports duplicate and single values
+Creates array of bogie IDs
+Accepts search key
+Traverses array sequentially
+Stops when match is found
+Displays search result
 
 Technologies Used
 Java
-Arrays utility class
+Arrays
 JUnit
 
 How to Run
@@ -37,19 +38,19 @@ java main.TrainApp
 
 Sample Output
 
-UC17 Sort Bogie Names Using Arrays sort
+UC18 Linear Search for Bogie ID
 
-Original Bogie Names
-Sleeper AC Chair First Class General Luxury
+Available Bogie IDs
+BG101 BG205 BG309 BG412 BG550
 
-Sorted Bogie Names
-AC Chair First Class General Luxury Sleeper
+Bogie ID BG309 found
 
 Concepts Covered
-Arrays sort method
-Natural ordering
-Optimized sorting
-Time complexity O n log n
+Linear Search
+Sequential traversal
+String comparison using equals
+Early termination
+Time complexity O n
 
 Status
-UC17 Completed Library Based Sorting
+UC18 Completed Linear Search
