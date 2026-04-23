@@ -1,7 +1,7 @@
 Train Consist Management App
 
 Overview
-This project simulates train consist management and introduces fundamental algorithm concepts. This use case demonstrates manual sorting using Bubble Sort.
+This project simulates train consist management and demonstrates efficient sorting using Java built in utilities. This use case focuses on sorting bogie names using Arrays sort method.
 
 Project Structure
 src/main contains application code
@@ -11,21 +11,20 @@ Package Structure
 main
 test
 
-Use Case 16 Bubble Sort
+Use Case 17 Sort Bogie Names Using Arrays sort
 
 Goal
-Sort passenger bogie capacities using manual algorithm instead of built in methods.
+Sort bogie type names alphabetically using Java built in sorting method.
 
 Features
-Creates an array of capacities
-Compares adjacent elements
-Swaps values when required
-Repeats passes until sorted
+Creates array of bogie names
+Uses Arrays sort for sorting
 Displays sorted output
+Supports duplicate and single values
 
 Technologies Used
 Java
-Arrays
+Arrays utility class
 JUnit
 
 How to Run
@@ -38,20 +37,19 @@ java main.TrainApp
 
 Sample Output
 
-UC16 Manual Sorting using Bubble Sort
+UC17 Sort Bogie Names Using Arrays sort
 
-Original Capacities
-72 56 24 70 60
+Original Bogie Names
+Sleeper AC Chair First Class General Luxury
 
-Sorted Capacities
-24 56 60 70 72
+Sorted Bogie Names
+AC Chair First Class General Luxury Sleeper
 
 Concepts Covered
-Bubble Sort Algorithm
-Nested loops
-Swapping logic
-Array manipulation
-Time complexity O n square
+Arrays sort method
+Natural ordering
+Optimized sorting
+Time complexity O n log n
 
 Status
-UC16 Completed Manual Sorting
+UC17 Completed Library Based Sorting
