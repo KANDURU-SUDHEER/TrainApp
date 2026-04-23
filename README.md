@@ -1,7 +1,7 @@
 Train Consist Management App
 
 Overview
-This project simulates railway train consist management using Java. It demonstrates safe runtime handling of cargo assignments using structured exception handling.
+This project simulates train consist management and introduces fundamental algorithm concepts. This use case demonstrates manual sorting using Bubble Sort.
 
 Project Structure
 src/main contains application code
@@ -11,25 +11,21 @@ Package Structure
 main
 test
 
-Use Case 15 Safe Cargo Assignment
+Use Case 16 Bubble Sort
 
 Goal
-Handle unsafe cargo assignments using try catch finally without crashing the system.
+Sort passenger bogie capacities using manual algorithm instead of built in methods.
 
 Features
-Defines custom runtime exception
-Validates cargo and bogie compatibility
-Throws exception for unsafe assignments
-Handles exception using catch block
-Executes finally block for completion
-Continues program execution safely
-
-Safety Rule
-Rectangular bogie cannot carry Petroleum cargo
+Creates an array of capacities
+Compares adjacent elements
+Swaps values when required
+Repeats passes until sorted
+Displays sorted output
 
 Technologies Used
 Java
-Exception Handling
+Arrays
 JUnit
 
 How to Run
@@ -42,22 +38,20 @@ java main.TrainApp
 
 Sample Output
 
-UC15 Safe Cargo Assignment
+UC16 Manual Sorting using Bubble Sort
 
-Cargo assigned Petroleum
-Error Unsafe cargo Rectangular bogie cannot carry Petroleum
-Assignment attempt completed
+Original Capacities
+72 56 24 70 60
 
-Final Bogie States
-Cylindrical -> Petroleum
-Rectangular -> Coal
+Sorted Capacities
+24 56 60 70 72
 
 Concepts Covered
-try catch finally
-Runtime Exception
-Custom Exception
-Graceful error handling
-Program continuation
+Bubble Sort Algorithm
+Nested loops
+Swapping logic
+Array manipulation
+Time complexity O n square
 
 Status
-UC15 Completed Safe Cargo Handling
+UC16 Completed Manual Sorting
