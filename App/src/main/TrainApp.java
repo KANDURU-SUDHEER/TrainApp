@@ -5,23 +5,24 @@ package main;
  * MAIN CLASS - TrainApp
  * ================================================================
  *
- * Use Case 18: Linear Search for Bogie ID
+ * Use Case 19: Binary Search for Bogie ID
  *
  * Description:
- * This class demonstrates searching for a specific bogie ID
- * using a simple Linear Search algorithm.
+ * This class demonstrates efficient searching of a bogie ID
+ * using Binary Search on sorted data.
  *
  * At this stage, the application:
- * - Creates an array of bogie IDs
- * - Accepts a search key
- * - Traverses array sequentially
- * - Stops when match is found
- * - Displays search result
+ * - Creates a sorted array of bogie IDs
+ * - Initializes low and high indexes
+ * - Finds middle index
+ * - Compares key using compareTo()
+ * - Halves search range
+ * - Displays result
  *
- * This maps basic searching logic using sequential traversal.
+ * This maps optimized searching using divide-and-conquer.
  *
  * Author: KANDURU-SUDHEER
- * Version: 18.0
+ * Version: 19.0
  */
 
 public class TrainApp {
@@ -29,11 +30,11 @@ public class TrainApp {
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println(" UC18 - Linear Search for Bogie ID ");
+        System.out.println(" UC19 - Binary Search for Bogie ID ");
         System.out.println("========================================\n");
 
         // ============================================================
-        // STEP 1: Create Array of Bogie IDs
+        // STEP 1: Create SORTED Array of Bogie IDs
         // ============================================================
         String[] bogieIds = {"BG101", "BG205", "BG309", "BG412", "BG550"};
 
@@ -43,23 +44,29 @@ public class TrainApp {
         String searchId = "BG309";
 
         // ============================================================
-        // STEP 3: Display Available IDs
+        // STEP 3: Initialize low and high indexes
         // ============================================================
-        System.out.println("Available Bogie IDs:");
-        for (String id : bogieIds) {
-            System.out.print(id + " ");
-        }
+        int low = 0;
+        int high = bogieIds.length - 1;
 
-        // ============================================================
-        // STEP 4: Linear Search Logic
-        // ============================================================
         boolean found = false;
 
-        for (String id : bogieIds) {
+        // ============================================================
+        // STEP 4: Binary Search Logic
+        // ============================================================
+        while (low <= high) {
 
-            if (id.equals(searchId)) {
+            int mid = (low + high) / 2;
+
+            int comparison = searchId.compareTo(bogieIds[mid]);
+
+            if (comparison == 0) {
                 found = true;
-                break; // early termination
+                break;
+            } else if (comparison < 0) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
             }
         }
 
@@ -67,13 +74,13 @@ public class TrainApp {
         // STEP 5: Display Result
         // ============================================================
         if (found) {
-            System.out.println("\n\nBogie ID " + searchId + " found");
+            System.out.println("Bogie ID " + searchId + " found");
         } else {
-            System.out.println("\n\nBogie ID " + searchId + " not found");
+            System.out.println("Bogie ID " + searchId + " not found");
         }
 
         // ============================================================
-        // END OF UC18
+        // END OF UC19
         // ============================================================
     }
 }
